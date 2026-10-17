@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://p-4b0124c738.chongchuanrc.cn/sitemap.xml

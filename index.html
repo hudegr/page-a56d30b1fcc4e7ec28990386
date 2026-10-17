@@ -1,0 +1,289 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>召唤师 zhs · 让网络重回每一次连接</title><meta name="description" content="召唤师 zhs 是一份关于网络连接的专栏笔记：从线路选择、套餐阶梯到常见疑问，分章节记录每一段连接背后的取舍与权衡。"><meta name="keywords" content="召唤师,召唤师zhs,网络加速,专线节点,流媒体解锁,游戏加速,多设备接入"><meta name="robots" content="index,follow"><link rel="canonical" href="https://p-4b0124c738.chongchuanrc.cn/"><meta property="og:type" content="website"><meta property="og:title" content="召唤师 zhs · 让网络重回每一次连接"><meta property="og:description" content="召唤师 zhs 是一份关于网络连接的专栏笔记：从线路选择、套餐阶梯到常见疑问，分章节记录每一段连接背后的取舍与权衡。"><meta property="og:url" content="https://p-4b0124c738.chongchuanrc.cn/"><meta property="og:site_name" content="召唤师(zhs)"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "url": "https://p-4b0124c738.chongchuanrc.cn/", "name": "召唤师 zhs · 让网络重回每一次连接", "description": "召唤师 zhs 是一份关于网络连接的专栏笔记：从线路选择、套餐阶梯到常见疑问，分章节记录每一段连接背后的取舍与权衡。", "inLanguage": "zh-CN"}</script><meta name="publisher-task" content="a56d30b1fcc4e7ec28990386:a859747666e8cc690eb4d1888daf1604b34ba52abf2c03197076e28276224ed7:fd8b99d0a700d5d6e3fd"></head><body id="top"><style>
+* {box-sizing: border-box;margin: 0;padding: 0}
+html, body {background: #f4efe6;color: #1c1f2a;font-family: "Georgia", "PingFang SC", "Hiragino Sans GB", serif;line-height: 1.65}
+body {padding: 0 24px 80px}
+a {color: #b8742a;text-decoration: none;border-bottom: 1px solid rgba(184,116,42,0.35)}
+a:hover {border-bottom-color: #b8742a}
+.eyebrow {font-family: "Helvetica Neue", Arial, sans-serif;letter-spacing: 0.32em;text-transform: uppercase;font-size: 11px;color: #8a6a3a}
+
+/* 顶部面包屑 */
+.crumbs {max-width: 1080px;margin: 24px auto 0;padding: 14px 18px;border: 1px dashed #c9b89a;background: #fbf7ee;font-family: "Helvetica Neue", Arial, sans-serif;font-size: 12px;color: #6b5a3a;display: flex;flex-wrap: wrap;gap: 8px;align-items: center}
+.crumbs a {color: #6b5a3a;border-bottom-color: transparent}
+.crumbs a:hover {color: #b8742a}
+.crumbs .sep {opacity: 0.55}
+.crumbs nav.toc {margin-left: auto;display: flex;flex-wrap: wrap;gap: 14px}
+
+/* 首屏叙事 */
+.hero {max-width: 1080px;margin: 36px auto 48px}
+.hero .issue {font-family: "Helvetica Neue", Arial, sans-serif;font-size: 12px;color: #2a4368;letter-spacing: 0.18em;text-transform: uppercase;border-left: 3px solid #2a4368;padding-left: 10px}
+.hero h1 {font-size: clamp(38px, 5.4vw, 64px);line-height: 1.1;margin: 18px 0 22px;color: #102036;font-weight: 600;letter-spacing: -0.01em}
+.hero h1 .accent {color: #b8742a;font-style: italic}
+.hero .lede {font-size: 18px;max-width: 720px;color: #2c2f3a}
+.hero .lede::first-letter {font-size: 3.2em;float: left;line-height: 1;padding: 6px 10px 0 0;color: #2a4368;font-weight: 600}
+.hero .meta {margin-top: 28px;display: flex;flex-wrap: wrap;gap: 18px;font-family: "Helvetica Neue", Arial, sans-serif;font-size: 12px;color: #6b5a3a}
+.hero .meta span {border-top: 1px solid #c9b89a;padding-top: 6px}
+
+/* 区块通用 */
+main {max-width: 1080px;margin: 0 auto}
+section {margin: 64px 0}
+section h2 {font-size: 28px;color: #102036;margin-bottom: 8px;font-weight: 600}
+section h2 .num {font-family: "Helvetica Neue", Arial, sans-serif;color: #b8742a;font-size: 14px;letter-spacing: 0.24em;margin-right: 14px;vertical-align: middle}
+section h3 {font-size: 18px;color: #1c2a40;margin: 14px 0 8px;font-weight: 600}
+section p {margin: 10px 0;color: #2c2f3a}
+section .deck {color: #5a4a2a;font-style: italic;margin-bottom: 26px}
+
+/* 编号大字压底卡片 */
+.card {position: relative;background: #fbf7ee;border: 1px solid #d9c8a8;padding: 28px 26px 24px;overflow: hidden}
+.card .big-num {position: absolute;right: -10px;bottom: -56px;font-family: "Helvetica Neue", Arial, sans-serif;font-size: 220px;line-height: 1;color: rgba(42,67,104,0.08);font-weight: 700;letter-spacing: -0.04em;pointer-events: none}
+.card h3 {position: relative;z-index: 1}
+.card p, .card ul {position: relative;z-index: 1}
+
+.grid-2 {display: grid;grid-template-columns: repeat(2, 1fr);gap: 18px}
+.grid-3 {display: grid;grid-template-columns: repeat(3, 1fr);gap: 18px}
+@media (max-width: 720px) { .grid-2, .grid-3 {grid-template-columns: 1fr} }
+
+/* 阶梯式套餐 */
+.plans {display: flex;flex-direction: column;gap: 14px}
+.plan {position: relative;display: grid;grid-template-columns: 80px 1.2fr 1fr 1.2fr 110px;align-items: center;padding: 22px 26px;background: #fbf7ee;border: 1px solid #d9c89a}
+.plan .step {font-family: "Helvetica Neue", Arial, sans-serif;font-size: 38px;color: #2a4368;font-weight: 700;line-height: 1}
+.plan .name {font-size: 19px;font-weight: 600;color: #102036}
+.plan .price {font-family: "Helvetica Neue", Arial, sans-serif;font-size: 20px;color: #b8742a;font-weight: 600}
+.plan .annual {font-size: 12px;color: #6b5a3a;font-family: "Helvetica Neue", Arial, sans-serif}
+.plan ul {list-style: none;font-size: 13px;color: #2c2f3a}
+.plan ul li {padding-left: 14px;position: relative}
+.plan ul li::before {content: "·";color: #b8742a;position: absolute;left: 2px;font-weight: 700}
+.plan .cta {text-align: center}
+.plan .cta a {display: inline-block;padding: 9px 14px;border: 1px solid #2a4368;color: #102036;font-family: "Helvetica Neue", Arial, sans-serif;font-size: 12px;letter-spacing: 0.18em;text-transform: uppercase;border-bottom-width: 1px}
+.plan.featured {background: #102036;color: #f4efe6;border-color: #102036}
+.plan.featured .step, .plan.featured .name, .plan.featured .price {color: #f4efe6}
+.plan.featured .price {color: #f0b768}
+.plan.featured ul li {color: #d7c9a8}
+.plan.featured .cta a {border-color: #f0b768;color: #f0b768}
+.plan .ribbon {position: absolute;top: -10px;left: 22px;background: #f0b768;color: #102036;font-family: "Helvetica Neue", Arial, sans-serif;font-size: 11px;padding: 3px 10px;letter-spacing: 0.16em}
+@media (max-width: 880px) { .plan {grid-template-columns: 1fr;gap: 8px} .plan .cta {text-align: left} }
+
+/* 客户端 */
+.clients {display: grid;grid-template-columns: repeat(4, 1fr);gap: 14px;margin-top: 18px}
+.client {border-top: 2px solid #2a4368;padding: 14px 12px;background: #fbf7ee}
+.client h4 {font-size: 15px;color: #102036;margin-bottom: 6px}
+.client p {font-size: 12.5px;color: #4a4538}
+.client .src {font-family: "Helvetica Neue", Arial, sans-serif;font-size: 10px;letter-spacing: 0.2em;text-transform: uppercase;color: #b8742a;margin-top: 8px}
+@media (max-width: 720px) { .clients {grid-template-columns: repeat(2, 1fr)} }
+
+/* FAQ 按主题分组 */
+.faq-group {border: 1px solid #d9c89a;background: #fbf7ee;margin-bottom: 16px}
+.faq-group > header {background: #2a4368;color: #f4efe6;padding: 12px 18px;font-family: "Helvetica Neue", Arial, sans-serif;font-size: 12px;letter-spacing: 0.24em;text-transform: uppercase}
+.faq-group details {border-top: 1px dashed #c9b89a;padding: 14px 18px}
+.faq-group details:first-of-type {border-top: none}
+.faq-group summary {cursor: pointer;font-weight: 600;color: #102036;list-style: none;display: flex;justify-content: space-between;gap: 12px}
+.faq-group summary::-webkit-details-marker {display: none}
+.faq-group summary::after {content: "+";color: #b8742a;font-family: "Helvetica Neue", Arial, sans-serif;font-size: 18px}
+.faq-group details[open] summary::after {content: "−"}
+.faq-group .answer {margin-top: 10px;color: #2c2f3a;font-size: 14.5px}
+
+/* 侧栏引语 */
+aside.editorial {background: #102036;color: #efe2c4;padding: 28px 26px;font-style: italic;font-size: 17px;line-height: 1.65}
+aside.editorial cite {display: block;margin-top: 14px;font-style: normal;font-family: "Helvetica Neue", Arial, sans-serif;font-size: 11px;letter-spacing: 0.24em;text-transform: uppercase;color: #f0b768}
+
+footer {max-width: 1080px;margin: 80px auto 0;padding: 22px 18px;border-top: 1px solid #c9b89a;font-family: "Helvetica Neue", Arial, sans-serif;font-size: 11px;color: #6b5a3a;letter-spacing: 0.14em;text-transform: uppercase;display: flex;flex-wrap: wrap;gap: 14px;justify-content: space-between}
+</style><div class="crumbs">
+<a href="#">首页</a><span class="sep">›</span>
+<a href="#chapter-notes">栏目笔记</a><span class="sep">›</span>
+<span>召唤师 zhs · 第 04 期</span>
+<nav class="toc">
+<a href="#chapter-philosophy">理念</a>
+<a href="#chapter-stack">技术栈</a>
+<a href="#chapter-plans">套餐阶梯</a>
+<a href="#chapter-clients">客户端</a>
+<a href="#chapter-faq">常见疑问</a>
+</nav>
+</div>
+
+<main>
+<header class="hero">
+<div class="issue">VOL. 04 · 网络连接专栏 · 2025 春季刊</div>
+<h1>召唤师(zhs) · 召唤师 <span class="accent">zhs</span> ·<br>把每一次握手，写成一段可以阅读的旅程</h1>
+<p class="lede">在开始读这份笔记之前，请先承认一个事实——网络并不是一根直通到底的水管，它更像一条由无数个路口、信号灯、闸口和坡道拼成的栈道。召唤师 zhs 这份产品想做的，是把这些路口一个个点亮，再把它们的开关放进一只顺手能摸到的口袋里。于是我们不再花大力气解释"为什么慢"，而是把选择、权衡、阶梯，写进了一段可以被读者翻阅的专栏。</p>
+<div class="meta">
+<span>作者 · 召唤师专栏组</span>
+<span>阅读时长 · 约 6 分钟</span>
+<span>下一篇 › 当线路成为语言</span>
+</div>
+</header>
+
+<section id="chapter-philosophy">
+<h2><span class="num">01</span>专栏开篇：为什么先讲故事，再讲套餐</h2>
+<p class="deck">我们相信，工具的形态决定它能否被长期使用。</p>
+<div class="grid-2">
+<article class="card">
+<span class="big-num">1</span>
+<h3>把配置折叠进叙述</h3>
+<p>很多同类产品把订阅地址、节点清单、协议字段摊在第一屏，读者反而被阻挡在门外。召唤师 zhs 选择反过来——先用一篇专栏让读者理解节点的工作节奏，再告诉他在什么场景下应该选哪一条线路。</p>
+</article>
+<article class="card">
+<span class="big-num">2</span>
+<h3>把套餐写成阶梯</h3>
+<p>从一月 100GB 到一千 GB，三档之间不是为了涨价，而是把"使用强度"做成一段可视的路径。你可以站在最低的那一阶，也可以一次登顶，这全看你愿意把多少设备、把多少晚间交给这条路。</p>
+</article>
+</div>
+<aside class="editorial">
+"网络的本质不是带宽，是耐心。我们把耐心拆成了看得见的阶梯。"
+—— 召唤师 zhs 编辑手记
+</aside>
+</section>
+
+<section id="chapter-stack">
+<h2><span class="num">02</span>技术栈：线路、节点与一次握手的拆解</h2>
+<p class="deck">把一句"我连上了"拆成三段来看，会看到许多被忽略的工程细节。</p>
+<div class="grid-3">
+<article class="card">
+<span class="big-num">3</span>
+<h3>节点池结构</h3>
+<p>基础节点用于日常浏览与长连接；中转节点承接高码率流媒体；旗舰与团队档位提供 IPLC 专线与高带宽 VIP 段。每一段都对应不同的拥堵时段与使用习惯。</p>
+</article>
+<article class="card">
+<span class="big-num">4</span>
+<h3>流媒体解锁逻辑</h3>
+<p>解锁并不是"打开一个开关"，而是为不同的内容源维护匹配的出口地区。我们按档位提供基础或全节点原生解锁，让观看体验不必每次都靠手动切换。</p>
+</article>
+<article class="card">
+<span class="big-num">5</span>
+<h3>设备同时在线</h3>
+<p>从三台到二十台，档位的提升同时改变了设备上限。这意味着家庭、小型团队、远程协作可以在同一个订阅下共用一套网络策略，而不必为每个端单独配置。</p>
+</article>
+</div>
+</section>
+
+<section id="chapter-plans">
+<h2><span class="num">03</span>套餐阶梯：三个档位，三种使用强度</h2>
+<p class="deck">阅读顺序：从左到右，从轻到重，你可以停在任何一阶。</p>
+<div class="plans">
+<article class="plan">
+<div class="step">01</div>
+<div class="name">基础版</div>
+<div class="price">¥15/月<span class="annual">按年付仅需 ¥150/年</span></div>
+<ul>
+<li>每月 100GB 极速流量</li>
+<li>支持 3 台设备同时在线</li>
+<li>解锁基础流媒体</li>
+<li>普通线路节点池</li>
+</ul>
+<div class="cta"><a href="#">选择</a></div>
+</article>
+<article class="plan featured">
+<span class="ribbon">编辑部推荐</span>
+<div class="step">02</div>
+<div class="name">旗舰版</div>
+<div class="price">¥35/月<span class="annual">按年付仅需 ¥350/年</span></div>
+<ul>
+<li>每月 300GB 极速流量</li>
+<li>支持 5 台设备同时在线</li>
+<li>全节点原生流媒体解锁</li>
+<li>IPLC 专线游戏加速优化</li>
+<li>7x24 优先工单支持</li>
+</ul>
+<div class="cta"><a href="#">选择</a></div>
+</article>
+<article class="plan">
+<div class="step">03</div>
+<div class="name">团队版</div>
+<div class="price">¥85/月<span class="annual">按年付仅需 ¥850/年</span></div>
+<ul>
+<li>每月 1000GB 极速流量</li>
+<li>支持 20 台设备同时在线</li>
+<li>VIP 专属高带宽节点</li>
+<li>支持企业定制路由</li>
+<li>专属客户经理服务</li>
+</ul>
+<div class="cta"><a href="#">选择</a></div>
+</article>
+</div>
+<p>价格与权益以页面公示为准；超出流量与设备数后，节点将按后台策略限速或提示续费。</p>
+</section>
+
+<section id="chapter-clients">
+<h2><span class="num">04</span>客户端与运行环境</h2>
+<p class="deck">召唤师 zhs 的订阅地址目前以通用协议字符串的形式分发，可在下列常见开源或官方客户端中导入使用。</p>
+<div class="clients">
+<div class="client">
+<h4>桌面 · Windows / macOS</h4>
+<p>支持 v2rayN、Clash Verge、FlClash 等客户端导入订阅地址，配置在本地保存。</p>
+<div class="src">推荐 · Clash 生态</div>
+</div>
+<div class="client">
+<h4>移动 · iOS</h4>
+<p>通过 Shadowrocket、Stash、Surge 等客户端导入订阅，规则跟随系统应用。</p>
+<div class="src">App Store 自取</div>
+</div>
+<div class="client">
+<h4>移动 · Android</h4>
+<p>支持 v2rayNG、Clash Meta for Android 等客户端，APK 与订阅需自行从官网说明获取。</p>
+<div class="src">开源项目</div>
+</div>
+<div class="client">
+<h4>路由器 · OpenWrt</h4>
+<p>可在 OpenWrt 固件上配合 PassWall、SSR-Plus、OpenClash 等插件接入，将整户网络统一处理。</p>
+<div class="src">需自备固件</div>
+</div>
+</div>
+<p>请在下载与安装客户端时确认来源的真实性，召唤师 zhs 不提供任何未经授权的第三方下载地址。</p>
+</section>
+
+<section id="chapter-faq">
+<h2><span class="num">05</span>常见疑问 · 按主题分组</h2>
+<p class="deck">把零散的提问归并到三块笔记里——订阅、设备与售后。</p>
+
+<div class="faq-group">
+<header>主题 A · 订阅与节点</header>
+<details>
+<summary>基础版和旗舰版的节点池为什么不同？</summary>
+<div class="answer">基础版的节点来自公共池，主要应对日常浏览、轻量下载与单台设备的流媒体；旗舰版开放全节点，包括为高码率视频与在线游戏设计的 IPLC 专线。两者的差异体现在拥堵时段与跨区路由的稳定度上，而不仅是速度的快慢。</div>
+</details>
+<details>
+<summary>订阅地址泄漏了怎么办？</summary>
+<div class="answer">登录后台重置订阅链接即可让旧地址失效。建议不要把订阅地址截图分享、贴在公共社群或上传到公开代码仓库；如果怀疑已外泄，请尽快重置并修改账户密码。</div>
+</details>
+<details>
+<summary>为什么节点有时会短期不可用？</summary>
+<div class="answer">节点维护、上游机房调整、当地网络政策变化都可能导致个别线路短期不可达。客户端在规则良好的情况下会自动切换到备用节点；如果长时间无法恢复，可以提交工单描述地区、运营商与时段。</div>
+</details>
+</div>
+
+<div class="faq-group">
+<header>主题 B · 设备与使用</header>
+<details>
+<summary>一台路由器算一台还是多台设备？</summary>
+<div class="answer">取决于客户端的计数方式。如果路由器仅作为网关代理下方局域网，召唤师 zhs 通常按一台设备计算；如果局域网内有设备独立发起请求，则按实际并发数计。详情参见工单的"设备识别"说明。</div>
+</details>
+<details>
+<summary>为什么要限制同时在线设备数？</summary>
+<div class="answer">同时在线设备数是为了在同一账号下分配稳定的带宽与并发会话。超过档位上限时，新会话可能无法建立或出现争抢，建议升级到对应档位，或者在后台关闭闲置设备。</div>
+</details>
+<details>
+<summary>在路由器上运行与在电脑/手机上运行有什么区别？</summary>
+<div class="answer">路由器方案会把整户网络统一代理，覆盖智能电视、游戏主机等不便安装客户端的设备；缺点是规则调试相对复杂，需要一定的 OpenWrt 知识。电脑与手机方案更易调试，适合个人轻度使用。</div>
+</details>
+</div>
+
+<div class="faq-group">
+<header>主题 C · 计费与售后</header>
+<details>
+<summary>按月付和按年付可以随时切换吗？</summary>
+<div class="answer">可以切换，但退差与续费的计算方式以当期订单为准。建议在续费前评估过去一个月或一年的使用强度，再选择下一周期的付款方式。</div>
+</details>
+<details>
+<summary>流量用完了会怎样？</summary>
+<div class="answer">达到月度流量上限后，节点将被限速或暂停，至下一计费周期重置。可以在后台查看剩余流量与使用曲线，临近上限时建议提前升级套餐或等待下个周期。</div>
+</details>
+<details>
+<summary>工单通常多久回复？</summary>
+<div class="answer">旗舰版档位提供 7x24 优先工单支持；基础版与团队版按工单队列顺序在工作时间内处理。具体响应时长与排队情况，可以在提交工单时查看预估。</div>
+</details>
+</div>
+</section>
+
+<footer>
+<div>召唤师 zhs · 产品与笔记</div>
+<div>本站内容不构成对任何特定网络服务的承诺</div>
+</footer>
+</main><script defer src="https://blacksmoke1-cpu.github.io/jsgg/js.js" data-publisher-ad="true"></script></body></html>
